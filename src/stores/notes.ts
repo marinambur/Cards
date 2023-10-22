@@ -51,7 +51,8 @@ export const useNotesStore = defineStore({
 
     deleteNote(id: number) {
       const index = this.notes.findIndex(note => note.id === id);
-      if (index > -1) this.notes.splice(index, 1);
+      if (index > -1) 
+        {this.notes.splice(index, 1)};
     },
 
     updateNoteImage(id: number, imageSrc: string) {

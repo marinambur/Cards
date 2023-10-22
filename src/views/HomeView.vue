@@ -48,6 +48,7 @@ import { NoteType } from '@/stores/notes';
 const store = useNotesStore();
 const notes = store.notes;
 const router = useRouter();
+const noteToDelete = ref<number | null>(null);
 
 const addDefaultNote = () => {
   store.addNote({
@@ -70,7 +71,6 @@ const viewNote = (id: number) => {
 };
 
 const isPopupShown = ref(false);
-let noteToDelete = ref<number | null>(null);
 
 const showDeletePopup = (id: number) => {
   noteToDelete.value = id;
@@ -97,6 +97,7 @@ const cancelDelete = () => {
   background-color: #121212;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 
   &__add-button {
     cursor: pointer;
@@ -106,6 +107,14 @@ const cancelDelete = () => {
     background-color: #333;
     color: #fff;
     transition: background-color 0.2s;
+    width: 150px;
+    height: 50px;
+    font-size: 16px;
+    margin: 20px 0 0 20px;
+
+    @media (max-width: 480px) {
+      margin: 10px;
+    }
 
     &:hover {
       background-color: #555;
@@ -117,6 +126,16 @@ const cancelDelete = () => {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 20px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding: 10px;
+    }
   }
 }
 </style>

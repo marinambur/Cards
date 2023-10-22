@@ -34,8 +34,9 @@ const displayedImageSrc = ref(props.imageSrc ? props.imageSrc : '');
 .image-note {
   &__image {
     max-height: 140px;
-    width: auto;
-    max-width: max-content;
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
     border-radius: 4px;
   }
 }
